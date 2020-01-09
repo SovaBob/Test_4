@@ -4,7 +4,6 @@ using System.IO;
 using System.Net;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
-using Tests.Models;
 
 namespace MockServer
 {
@@ -77,49 +76,7 @@ namespace MockServer
                     string text = "abcdefg";
                     SendMessageToClient(text, response);
                     break;
-                case "/method/users/get/194599671":
-                    User user = new User()
-                    {
-                        Id = "194599671",
-                        FirstName = "Игорь",
-                        LastName = "Малахов",
-                        IsClosed = false
-                    };
-                    SendMessageToClient(user,response);
-                    break;
-                case "/method/groups/getById/167950306":
-                    Group group = new Group()
-                    {
-                        Id = "167950306",
-                        Name = "Игра Обзоров",
-                        ScreenName = "igraobzorov",
-                        IsClosed = false
-                    };
-                    SendMessageToClient(group,response);
-                    break;
-                case "/method/groups/get/194599671":
-                    List<Group> groups = new List<Group>();
-                    Group tgroup = new Group()
-                    {
-                        Id = "167950306",
-                        Name = "Игра Обзоров",
-                        ScreenName = "igraobzorov",
-                        IsClosed = false
-                    };
-                    groups.Add(tgroup);
-                    tgroup = new Group()
-                    {
-                        Id = "120978225",
-                        Name = "ДИЧЬ",
-                        ScreenName = "ultradich",
-                        IsClosed = false
-                    };
-                    groups.Add(tgroup);
-                    SendMessageToClient(groups,response);
-                    break;
-
             }
-
         }
     }
 }
